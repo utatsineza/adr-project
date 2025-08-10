@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile | Assignment Tracker</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav>
+        <a href="{% url 'dashboard_page' %}">Dashboard</a>
+        <a href="{% url 'calendar_page' %}">Calendar</a>
+        <a href="{% url 'profile_page' %}">Profile</a>
+        <a href="#" onclick="logout()">Logout</a>
+    </nav>
+    <main>
+        <h1>User Profile</h1>
+        <div class="profile-info" id="profile-info">
+            Loading profile...
+        </div>
+    </main>
+    <script src="{% static 'js/script.js' %}"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        fetch("/user-profile/", {
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem("accessToken")
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            } 
+            return response.json();
+        })
+        .then(data => {
+            const profileDiv = document.getElementById("profile-info");
+            profileDiv.innerHTML = `
+                <p><strong>Username:</strong> ${data.username}</p>
+                <p><strong>Email:</strong> ${data.email}</p>
+                <p><strong>Date Joined:</strong> ${data.date_joined}</p>
+            `;
+        })
+        .catch(error => {
+            console.error("Failed to load profile:", error);
+            document.getElementById("profile-info").innerText = "Failed to load profile.";
+        });
+    });
+
+    const loginPageUrl = "{% url 'login_page' %}";
+    </script>
+</body>
+</html>

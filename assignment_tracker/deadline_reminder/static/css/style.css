@@ -1,0 +1,248 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: #f4f7fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Navigation Bar */
+nav {
+    background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+nav a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Main Container */
+main {
+    max-width: 800px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    text-align: center;
+    color: #2575fc;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+select {
+    padding: 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    background: #f9f9f9;
+}
+
+button {
+    background: #6a11cb;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background: #2575fc;
+}
+
+/* Assignment List */
+.assignment {
+    background: #f0f4ff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.assignment h3 {
+    color: #6a11cb;
+}
+
+.actions button {
+    margin-left: 8px;
+    font-size: 14px;
+    padding: 8px 12px;
+}
+
+/* Profile Card */
+.profile-info {
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 20px;
+    font-size: 18px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    main {
+        margin: 20px;
+        padding: 20px;
+    }
+}
+
+.calendar-container {
+    width: 90%;
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+}
+
+#calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+#calendar-header h2 {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+#calendar-header button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.calendar-day {
+    height: 100px;
+    background: #f7f7f7;
+    border-radius: 8px;
+    padding: 5px;
+    position: relative;
+    font-size: 14px;
+}
+
+.calendar-day span {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    font-weight: bold;
+}
+
+.deadline {
+    background: #ff4d4d;
+    color: white;
+    padding: 3px;
+    font-size: 12px;
+    border-radius: 4px;
+    display: block;
+    margin-top: 20px;
+}
+
+.day {
+    padding: 10px;
+    background: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    min-height: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    font-size: 14px;
+    position: relative;
+}
+
+.assignment {
+    background: #e0e7ff;
+    color: #333;
+    margin-top: 5px;
+    padding: 4px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.assignment button {
+    margin-top: 4px;
+    padding: 2px 6px;
+    font-size: 11px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.assignment .complete-btn {
+    background: #4caf50;
+    color: white;
+}
+
+.assignment .pending-btn {
+    background: #ff9800;
+    color: white;
+}
+

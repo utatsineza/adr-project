@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Assignment Tracker</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav>
+        <h2>Assignment Tracker</h2>
+    </nav>
+    <main class="auth-container">
+        <div class="auth-card">
+            <h1>Create Account</h1>
+            <form id="register-form" class="auth-form">
+                {% csrf_token %}
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit" class="btn-primary">Register</button>
+            </form>
+            <p>Already have an account? <a href="{% url 'login_page' %}">Login</a></p>
+        </div>
+    </main>
+    <script src="{% static 'js/script.js' %}"></script>
+     <script>
+        document.getElementById("register-form").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const username = document.getElementById("username").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            try {
+                const res = await fetch(`${API_BASE}/register/`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ username, email, password })
+                });
+
+                if (res.ok) {
+                    alert("Registration successful! Please log in.");
+                    window.location.href = loginPageUrl;
+                } else {
+                    const data = await res.json();
+                    alert("Error: " + JSON.stringify(data));
+                }
+            } catch (error) {
+                console.error(error);
+                alert("Something went wrong.");
+            }
+        });
+         const loginPageUrl = "{% url 'login_page' %}";
+    </script>
+</body>
+</html>

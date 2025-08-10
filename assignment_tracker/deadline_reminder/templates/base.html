@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Assignment Tracker{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="{% url 'register_page' %}">Register</a>
+        <a href="{% url 'login_page' %}">Login</a>
+        <a href="{% url 'dashboard_page' %}">Dashboard</a>
+    </nav>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

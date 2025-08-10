@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Assignment Tracker</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav>
+        <a href="{% url 'dashboard_page' %}">Dashboard</a>
+        <a href="{% url 'calendar_page' %}">Calendar</a>
+        <a href="{% url 'profile_page' %}">Profile</a>
+        <a href="#" onclick="logout()">Logout</a>
+    </nav>
+    <main>
+        <h1>Assignments Dashboard</h1>
+        <div>
+            <input type="text" id="assignment-name" placeholder="Assignment Name">
+            <input type="date" id="assignment-deadline">
+            <button onclick="addAssignment(document.getElementById('assignment-name').value, document.getElementById('assignment-deadline').value)">Add Assignment</button>
+        </div>
+        <div id="assignment-list"></div>
+    </main>
+    <script src="{% static 'js/script.js' %}"></script>
+    <script>
+        const loginPageUrl = "{% url 'login_page' %}";
+        document.addEventListener("DOMContentLoaded", fetchAssignments);
+    </script>
+</body>
+</html>
