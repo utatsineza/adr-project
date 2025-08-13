@@ -2,24 +2,22 @@
 
 A Django-based application to help students track and get reminders for assignment deadlines.
 
-## 📂 Project Structure
+## Project Structure
 
 assignment_tracker/
 ├── backend/ # App(s) or backend logic
-├── deadline_reminder/ # Django project config (settings, urls, etc.)
-├── venv/ # Virtual environment (local only, not in repo)
-├── db.sqlite3 # SQLite database file (currently empty by default)
+├── deadline_reminder/ # Django project config 
+├── venv/ # Virtual environment 
+├── db.sqlite3 # SQLite database file 
 ├── manage.py # Django management script
 ├── requirements.txt # Python dependencies
 
 
 ---
 
-## 🚀 Getting Started
-
 Follow these steps to set up and run the project locally.
 
-### 1️⃣ Clone the repository
+### Clone the repository
 ```bash
 git clone <your-repository-url>
 cd assignment_tracker
